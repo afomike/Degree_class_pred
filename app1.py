@@ -17,33 +17,7 @@ def preprocess_input(data):
     # Convert relevant columns to numeric, fill missing values with 0
     df['PREV_GPA'] = pd.to_numeric(df['PREV_GPA'], errors='coerce').fillna(0)
     df['GPA'] = pd.to_numeric(df['GPA'], errors='coerce').fillna(0)
-
-    # Calculate CGPA
-    def calculate_cgpa(row):
-        if row['PREV_GPA'] == 0:
-            return row['GPA']
-        else:
-            return (row['PREV_GPA'] + row['GPA']) / 2
-
-    df['cgpa'] = df.apply(calculate_cgpa, axis=1)
-
-    # Convert CGPA to degree grade
-    def convert_to_degree_grade(value):
-        if value >= 4.5:
-            return "First Class"
-        elif value >= 3.5:
-            return "Second Class Upper"
-        elif value >= 2.5:
-            return "Second Class Lower"
-        elif value >= 1.5:
-            return "Third Class"
-        elif value >= 1.0:
-            return "Pass"
-        else:
-            return "Fail"
-
-    df["Degree"] = df['cgpa'].apply(convert_to_degree_grade)
-
+    
     # Example additional preprocessing steps
     # Convert study hours to numeric
     df['HOURS_STUDY'] = pd.to_numeric(df['HOURS_STUDY'], errors='coerce').fillna(0)
