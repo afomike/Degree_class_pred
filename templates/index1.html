@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hepatitis Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            display: flex;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"], select {
+            width: calc(100% - 30px);
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+        .first{
+            float: left;
+        }
+        .second{
+            margin-left: 30vh;
+            float: right;
+        }
+    </style>
+<body>
+    <h1>Hepatitis Prediction</h1>
+    <form method="POST">
+        <div class="first">
+        <label for="age">Age:</label>
+        <input type="number" name="age" step="1" required><br>
+        
+        <label for="sex">Sex:</label>
+        <select name="sex" required>
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+        </select><br>
+        
+        <label for="steroid">Steroid:</label>
+        <select name="steroid" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        
+        <label for="antivirals">Antivirals:</label>
+        <select name="antivirals" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        
+        <label for="fatigue">Fatigue:</label>
+        <select name="fatigue" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        
+        <label for="malaise">Malaise:</label>
+        <select name="malaise" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        
+        <label for="anorexia">Anorexia:</label>
+        <select name="anorexia" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+    
+       
+        <label for="liver_big">Liver Big:</label>
+        <select name="liver_big" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+    
+        <label for="liver_firm">Liver Firm:</label>
+        <select name="liver_firm" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+    </div>
+    <div class="second">
+        <label for="spiders">Spiders:</label>
+        <select name="spiders" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+       
+        <label for="ascites">Ascites:</label>
+        <select name="ascites" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        
+        <label for="varices">Varices:</label>
+        <select name="varices" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        
+        <label for="bilirubin">Bilirubin:</label>
+        <input type="number" name="bilirubin" step="0.01" required><br>
+        
+        <label for="alk_phosphate">Alk Phosphate:</label>
+        <input type="number" name="alk_phosphate" step="0.01" required><br>
+        
+        <label for="sgot">SGOT:</label>
+        <input type="number" name="sgot" step="0.01" required><br>
+        
+        <label for="albumin">Albumin:</label>
+        <input type="number" name="albumin" step="0.01" required><br>
+        
+        <label for="histology">Histology:</label>
+        <select name="histology" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        <input type="submit" value="Predict">
+    </div>
+        
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
